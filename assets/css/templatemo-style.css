@@ -1,0 +1,220 @@
+
+/* Preloader 
+	https://ihatetomatoes.net/create-custom-preloading-screen/
+*/
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+   #loader-wrapper { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 2000; }
+   #loader { display: block; position: relative; left: 50%; top: 50%; width: 150px; height: 150px; margin: -75px 0 0 -75px; border-radius: 50%; border: 3px solid transparent; border-top-color: #3498db; -webkit-animation: spin 2s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+   	animation: spin 2s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */ z-index: 2001; }
+   #loader:before { content: ""; position: absolute; top: 5px; left: 5px; right: 5px; bottom: 5px; border-radius: 50%; border: 3px solid transparent;
+   	border-top-color: #e74c3c; -webkit-animation: spin 3s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+   animation: spin 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */ }
+   #loader:after { content: ""; position: absolute; top: 15px; left: 15px; right: 15px; bottom: 15px; border-radius: 50%; border: 3px solid transparent;
+border-top-color: #f9c922; -webkit-animation: spin 1.5s linear infinite; /* Chrome, Opera 15+, Safari 5+ */ animation: spin 1.5s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */ }
+
+@-webkit-keyframes spin {
+	0%   { 
+		-webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */  /* IE 9 */
+		transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+	}
+	100% {
+		-webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */  /* IE 9 */
+		transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+	}
+}
+@keyframes spin {
+	0%   { 
+		-webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */  /* IE 9 */
+		transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+	}
+	100% {
+		-webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */  /* IE 9 */
+		transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+	}
+}
+
+#loader-wrapper .loader-section { position: fixed; top: 0; width: 51%; height: 100%; background: #f9f9f9; z-index: 2000; -webkit-transform: translateX(0);  /* Chrome, Opera 15+, Safari 3.1+ */  /* IE 9 */ transform: translateX(0);  /* Firefox 16+, IE 10+, Opera */}
+
+#loader-wrapper .loader-section.section-left {
+	left: 0;
+}
+
+#loader-wrapper .loader-section.section-right {
+	right: 0;
+}
+
+/* Loaded */
+.loaded #loader-wrapper .loader-section.section-left {
+	-webkit-transform: translateX(-100%);  /* Chrome, Opera 15+, Safari 3.1+ */  /* IE 9 */
+	transform: translateX(-100%);  /* Firefox 16+, IE 10+, Opera */  
+	transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+}
+
+.loaded #loader-wrapper .loader-section.section-right {
+	-webkit-transform: translateX(100%);  /* Chrome, Opera 15+, Safari 3.1+ */  /* IE 9 */
+	transform: translateX(100%);  /* Firefox 16+, IE 10+, Opera */  
+	transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+}
+
+.loaded #loader {
+	opacity: 0;  
+	transition: all 0.3s ease-out;
+}
+.loaded #loader-wrapper {
+	visibility: hidden;
+
+	-webkit-transform: translateY(-100%);  /* Chrome, Opera 15+, Safari 3.1+ */  /* IE 9 */
+	transform: translateY(-100%);  /* Firefox 16+, IE 10+, Opera */  
+	transition: all 0.3s 1s ease-out;
+}
+
+/* JavaScript Turned Off */
+.no-js #loader-wrapper {
+	display: none;
+}
+
+.cd-hero-slider.small-screen { height: 100%; }
+.cd-hero-slider .js-tm-page-content.tm-page-1 { margin-top: 15px; }
+
+/* Media Queries */
+@media only screen and (min-width: 720px) {
+	
+	.tm-footer { 
+		-webkit-flex-direction: row; 
+			-ms-flex-direction: row; 
+				flex-direction: row; 
+	}
+
+	.tm-copyright-text { margin-top: 0; }
+}
+
+@media only screen and (min-width: 465px) and (max-width: 767px) {
+	.cd-hero-slider .js-tm-page-content.tm-page-1 { margin-top: 30px; }
+    .tm-2-col-textbox{
+        width: auto;
+        min-width: 300px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+
+	.cd-hero-slider .js-tm-page-content.tm-page-1 { margin-top: 50px; }
+
+	.navbar-nav .nav-item {	float: left; }
+
+	.cd-slider-nav a,
+	.navbar-nav .nav-link {
+		background-color: rgba(255,255,255,0.4);
+	}
+
+	.cd-slider-nav .nav-item.selected .nav-link,
+	.cd-slider-nav .nav-link:hover,
+	.cd-slider-nav .nav-link:focus {
+		background-color: rgba(255,255,255,0.7);
+	}
+
+	.cd-slider-nav li {	
+		display: inline-block; 
+		width: auto;
+		height: auto;
+	}
+
+	.navbar-nav .nav-item+.nav-item { margin-left: 1rem; }
+
+	.cd-slider-nav a,
+	.navbar-nav .nav-link {
+		font-size: 1.5em;
+		height: 80px;
+	}
+
+	.cd-hero-slider .cd-full-width { padding-top: 0; }
+	
+	.tm-2-col-container { 
+		display: -webkit-flex; 
+		display: -ms-flexbox; 
+		display: flex; 
+	}
+
+	.tm-2-col-textbox {	
+		margin-bottom: 0;
+		margin-right: 20px;
+	}
+
+	.tm-2-col-textbox:last-child { margin-right: 0;	}	
+}
+
+@media only screen and (max-width: 991px) and (min-width: 769px) {
+	.cd-slider-nav a, 
+	.navbar-nav .nav-link {
+		font-size: 1.2em;
+		width: 95px;
+	    height: 60px;
+	}
+
+	.cd-slider-nav .nav-item+.nav-item { margin-left: 1rem; }
+}
+
+@media only screen and (min-width: 992px) {
+	.cd-slider-nav .nav-item+.nav-item { margin-left: 1.5rem; }
+}
+
+@media only screen and (min-width: 1170px) {
+
+	.cd-hero-slider h2, .cd-hero-slider p { margin-bottom: 20px; }
+	.cd-hero-slider p:last-child { margin-bottom: 0; }
+	.cd-hero-slider .cd-full-width { padding-top: 0; }
+	.cd-hero-slider .tm-text { font-size: 1em; }
+}
+
+.border-top {
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 20px;
+}
+
+.border-left {
+	top: 0;
+	left: 0;
+	width: 20px;
+	height: 100%;
+}
+
+.border-bottom {
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 20px;
+}
+
+.border-right {
+	top: 0;
+	right: 0;
+	width: 20px;
+	height: 100%;
+}
+
+.shape-1 {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	width: 50px;
+	height: 50px;
+	background: url("../img/shape-1.png") no-repeat;
+}
+
+.shape-2 {
+	position: fixed;
+	bottom: 20px;
+	left: 20px;
+	width: 50px;
+	height: 50px;
+	background: url("../img/shape-2.png") no-repeat;
+}
+span[class*="border-"] {
+	position: fixed;
+	background: #1f2122;
+	z-index: 1003;
+}
